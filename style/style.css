@@ -1,0 +1,10 @@
+.header{
+    background-image: url('image/JavaSript.png');
+    background-image: url(../style/image/JavaSript.png);
+    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    /* background-size: cover; */
+    background-size: contain;
+    background-size: 500px;
+}

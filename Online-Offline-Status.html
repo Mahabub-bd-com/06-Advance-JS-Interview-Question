@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online/Offline Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .status {
+            font-size: 72px;
+            font-weight: bold;
+            color: #333;
+        }
+        .offline {
+            color: red;
+        }
+        .online {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="status" id="status"></div>
+
+    <script>
+        // Function to update the status based on the online/offline status
+        function updateStatus() {
+            const statusElement = document.getElementById("status");
+            if (navigator.onLine) {
+                statusElement.textContent = "You are online!";
+                statusElement.classList.remove("offline");
+                statusElement.classList.add("online");
+            } else {
+                statusElement.textContent = "You are offline!";
+                statusElement.classList.remove("online");
+                statusElement.classList.add("offline");
+            }
+        }
+
+        // Event listeners for online and offline events
+        window.addEventListener("online", updateStatus);
+        window.addEventListener("offline", updateStatus);
+
+        // Initial status check
+        updateStatus();
+    </script>
+</body>
+</html>

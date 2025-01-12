@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock with setInterval</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .clock {
+            font-size: 78px;
+            font-weight: bold;
+            color: #333;
+            /* color: orangered; */
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock"></div>
+
+    <script>
+        // Function to update the clock
+        function updateClock() {
+            const now = new Date(); // Get the current date and time
+            const hours = String(now.getHours()).padStart(2, '0'); // Format hours
+            const minutes = String(now.getMinutes()).padStart(2, '0'); // Format minutes
+            const seconds = String(now.getSeconds()).padStart(2, '0'); // Format seconds
+            
+            // Display the formatted time in the clock element
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Initial call to display the clock immediately
+        updateClock();
+    </script>
+</body>
+</html>
